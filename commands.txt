@@ -1,0 +1,20 @@
+# permet de lister les hosts
+ansible --list-hosts all
+
+# se connecte sur tous les équipements et effectue la commande show mac address-table
+ansible all --inventory-file=hosts -m raw -a "show mac address-table" -u samir -k
+
+# se connecte sur sw1 et effectue un show version
+ansible sw1 -m raw -a "show version" -u samir -k
+
+# autres commands
+
+ansible all -i hosts -m raw -a "show arp" -u samir -k
+ansible all -i hosts -m raw -a "show arp" -u samir -k | grep 91
+ansible all -i hosts -m raw -a "show arp" -u samir -k | grep 'SUCCESS\|91'
+ansible all -i hosts -m raw -a "show arp" -u samir -k | grep 'SUCCESS\|\.91'
+ansible all -i hosts -m raw -a "show mac address-table" -u samir -k
+ansible all -i hosts -m raw -a "show mac address-table" -u samir -k | grep 7a
+ansible all -i hosts -m raw -a "show mac address-table" -u samir -k | grep 'SUCCESS\|fe7a'
+ansible sw1 -m raw -a show run -u samir -k
+ansible-playbook --limit sw1 getIOSCmd.yml -u samir -k

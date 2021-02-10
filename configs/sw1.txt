@@ -1,0 +1,111 @@
+Building configuration...
+
+Current configuration : 1552 bytes
+!
+! Last configuration change at 17:18:12 UTC Wed Feb 10 2021 by samir
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname SW1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+username samir privilege 15 password 0 cisco
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip domain-name crenshaw.radio
+ip cef
+no ipv6 cef
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ negotiation auto
+!
+interface GigabitEthernet0/1
+ speed 100
+ duplex full
+ no negotiation auto
+!
+interface GigabitEthernet0/2
+ negotiation auto
+!
+interface GigabitEthernet0/3
+ negotiation auto
+!
+interface GigabitEthernet1/0
+ negotiation auto
+!
+interface GigabitEthernet1/1
+ negotiation auto
+!
+interface GigabitEthernet1/2
+ negotiation auto
+!
+interface GigabitEthernet1/3
+ negotiation auto
+!
+interface Vlan1
+ ip address 192.168.1.90 255.255.255.0
+!
+ip forward-protocol nd
+!
+no ip http server
+!
+ip ssh version 2
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+!
+!
+!
+!
+!
+snmp-server community ansibull RO 99
+!
+control-plane
+!
+banner exec ^C You are connected to line $(line) at router $(hostname) ^C
+banner incoming ^C welcome to LAN  ^C
+banner login ^C Authenticate yourself! ^C
+banner motd ^C Authorized users only, violaters will be shot on sight! ^C
+!
+line con 0
+line aux 0
+line vty 0 4
+ login local
+ transport input all
+!
+!
+end

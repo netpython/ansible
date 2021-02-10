@@ -1,0 +1,11 @@
+[core]
+sw1
+
+[access]
+sw2
+sw3
+sw4
+
+[switches:children]
+core
+access

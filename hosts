@@ -9,3 +9,12 @@ sw4
 [switches:children]
 core
 access
+
+[campus-core]
+core-s1
+core-s2
+
+[campus-access]
+access-s3
+access-s4
+access-s5

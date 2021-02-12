@@ -18,3 +18,7 @@ core-s2
 access-s3
 access-s4
 access-s5
+
+[campus:children]
+campus-core
+campus-access

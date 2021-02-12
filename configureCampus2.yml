@@ -33,6 +33,7 @@
           - ip dhcp snooping
           - ip arp inspection vlan 100,101
           - spanning-tree portfast edge bpduguard default
+          - username ansible password 0 cisco
 
       register: print_output
 
